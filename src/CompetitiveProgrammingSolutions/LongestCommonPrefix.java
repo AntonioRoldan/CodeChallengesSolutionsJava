@@ -24,16 +24,16 @@ class LongestCommonPrefix {
         if(strs.length == 1){
             return strs[0];
         }
-        String longestCommonPrefix = "";
+        StringBuilder longestCommonPrefix = new StringBuilder();
         char currentCharacter = '0';
-        Boolean commonPrefixCharacterFoundAndExtended = true;
+        Boolean commonPrefixCharacterFoundAndExtended = true; //THis should initially be set to true so the first loop runs
         for(int i = 0; i < strs[0].length(); i++){
             for(int j = 1; j < strs.length; j++){
-                if(!commonPrefixCharacterFoundAndExtended){
+                if(!commonPrefixCharacterFoundAndExtended){ //If a common character is not found between the first string and any of the consecutive strings we are done
                     break;
                 }
-                if(strs[j].length() - 1 < i){
-                    return longestCommonPrefix;
+                if(strs[j].length() - 1 < i){ //If the length of the next string for comparison is smaller than the index we are at we are done
+                    return longestCommonPrefix.toString();
                 } else {
                     if(strs[0].charAt(i) == strs[j].charAt(i)){
                         commonPrefixCharacterFoundAndExtended = true;
@@ -43,9 +43,9 @@ class LongestCommonPrefix {
                 }
             }
             if(commonPrefixCharacterFoundAndExtended){
-                longestCommonPrefix += Character.toString(strs[0].charAt(i));
+                longestCommonPrefix.append(Character.toString(strs[0].charAt(i)));
             }
         }
-        return longestCommonPrefix;
+        return longestCommonPrefix.toString();
     }
 }
