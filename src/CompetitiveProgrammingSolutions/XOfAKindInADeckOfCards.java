@@ -73,7 +73,6 @@ class XOfAKindInADeckOfCards {
                 if(smallestDeckSize == 1 && currentSubDeckSize > 1){
                     return false;
                 }
-                continue;
             } else {
                 return false;
             }
